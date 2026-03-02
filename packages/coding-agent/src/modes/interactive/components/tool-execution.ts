@@ -302,6 +302,28 @@ export class ToolExecutionComponent extends Container {
 			}
 		}
 
+		// Fallback: unknown custom tool (injected via customTools, no ToolDefinition registered)
+		if (!this.shouldUseBuiltInRenderer() && !this.toolDefinition) {
+			this.contentBox.setBgFn(bgFn);
+			this.contentBox.clear();
+			this.contentBox.addChild(new Text(theme.fg("toolTitle", theme.bold(this.toolName)), 0, 0));
+
+			if (this.result) {
+				const output = this.getTextOutput();
+				if (output) {
+					const lines = output.split("\n");
+					const maxLines = this.expanded ? lines.length : 20;
+					const displayLines = lines.slice(0, maxLines);
+					const remaining = lines.length - maxLines;
+					let resultText = displayLines.map((line: string) => theme.fg("toolOutput", line)).join("\n");
+					if (remaining > 0) {
+						resultText += theme.fg("muted", `\n... (${remaining} more lines)`);
+					}
+					this.contentBox.addChild(new Text("\n" + resultText, 0, 0));
+				}
+			}
+		}
+
 		// Handle images (same for both custom and built-in)
 		for (const img of this.imageComponents) {
 			this.removeChild(img);
