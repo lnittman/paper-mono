@@ -1,0 +1,22 @@
+{
+  "name": "@paper/backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx convex dev",
+    "deploy": "npx convex deploy",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "convex": "^1.21.0",
+    "@lnittman/convex-pi": "^0.1.0"
+  },
+  "devDependencies": {
+    "@lnittman/evals": "^0.1.0",
+    "braintrust": "^0.0.194",
+    "autoevals": "^0.0.108",
+    "vitest": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
+}
