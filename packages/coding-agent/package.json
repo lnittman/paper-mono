@@ -1,5 +1,5 @@
 {
-	"name": "paper-coding-agent",
+	"name": "@lnittman/paper-mono",
 	"version": "0.1.0",
 	"description": "Paper — design-to-code agent CLI powered by Paper Desktop MCP",
 	"type": "module",

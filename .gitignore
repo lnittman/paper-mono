@@ -33,3 +33,6 @@ pi-*.html
 out.html
 packages/coding-agent/binaries/
 todo.md
+.env.local
+_generated/
+/tui-rs/target/
